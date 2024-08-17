@@ -42,7 +42,7 @@ Contact: {self.__owner_phone_number}
           transfer_history_add = {
                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                "account_id" : self.__owner_id,
-               "action": "Add",
+               "action": "Qabul qilish",
                "amount": summa_plus
           }
           self.__payment_history.append(transfer_history_add)
@@ -54,7 +54,7 @@ Contact: {self.__owner_phone_number}
                transfer_history_min = {
                     "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "account_id": self.__owner_id,
-                    "action": "Withdraw",
+                    "action": "o'tkazish",
                     "amount": summa_minus
                }
                self.__payment_history.append(transfer_history_min)
@@ -76,7 +76,7 @@ Contact: {self.__owner_phone_number}
               
                self.__payment_history.append(transfer_history)
                account.__payment_history.append(transfer_history)
-               print(f"Transfer of {summa_transfer} completed successfully.")
+               print(f"Transfer {summa_transfer} O'zkazilindi .")
           else:
                print("Mablag' yetarli emas!")
 
@@ -84,31 +84,31 @@ Contact: {self.__owner_phone_number}
 account1 = Bank_Account(100_000, "Ziyodulla", 23201, "90-478-32-05", [])
 account2 = Bank_Account(50_000, "Sardor", 24653, "90-564-32-46", [])
 
-print("Initial account balances:")
+print("Boshlang'ich hisob raqamlar :")
 print(f"account1: {account1.get_owner_balance()} \naccount2: {account2.get_owner_balance()}")
 print("\n")
 
 
 account1.transfer(account2, 30_000)
-print(f"account1 remaining balance: {account1.get_owner_balance()}")
-print(f"account2 new balance: {account2.get_owner_balance()}")
+print(f"account1  balance: {account1.get_owner_balance()}")
+print(f"account2  balance: {account2.get_owner_balance()}")
 
-print("\nTransfer History for account1:")
+print("\nTransfer tarixi account1:")
 print(account1.get_payment_history())
 
 
 account2.transfer(account1, 20_000)
-print(f"account1 remaining balance: {account1.get_owner_balance()}")
-print(f"account2 new balance: {account2.get_owner_balance()}")
+print(f"account1  balance: {account1.get_owner_balance()}")
+print(f"account2  balance: {account2.get_owner_balance()}")
 
-print("\nTransfer History for account2:")
+print("\nTransfer tarixi  account2:")
 print(account2.get_payment_history())
 
 
 adding_summa = 15_000
-print(f"\nAdding {adding_summa} to account1.")
+print(f"\n O'tkazma  {adding_summa} => account1.")
 account1.add_balance(adding_summa)
-print(f"account1 new balance: {account1.get_owner_balance()}")
+print(f"account1  balance: {account1.get_owner_balance()}")
 
 print("\n")
 
